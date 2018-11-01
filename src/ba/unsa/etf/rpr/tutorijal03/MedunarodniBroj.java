@@ -2,8 +2,8 @@ package ba.unsa.etf.rpr.tutorijal03;
 
 public class MedunarodniBroj {
 
-    String drzava;
-    String broj;
+    private String drzava;
+    private String broj;
 
     public MedunarodniBroj(String drzava, String broj) {
         this.drzava = drzava;
@@ -28,6 +28,12 @@ public class MedunarodniBroj {
 
     @Override
     public String ispisi() {
+
         return (drzava + broj);
+    }
+
+    @Override
+    public int hashCode(){
+        return 0;
     }
 }

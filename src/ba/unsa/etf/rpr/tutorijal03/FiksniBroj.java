@@ -2,8 +2,9 @@ package ba.unsa.etf.rpr.tutorijal03;
 
 public class FiksniBroj {
 
-    enum Grad {
-        Sarajevo,
+    private String broj;
+    public enum Grad {
+        Sarajevo("033"),
         Travnik,
         Zenica,
         Mostar,
@@ -13,10 +14,20 @@ public class FiksniBroj {
         Orašje,
         Livno,
         ŠirokiBrijeg,
-        BRCKO
+        BRCKO;
+
+        private final String pozivni;
+
+        Grad(String pozivni) {
+
+            this.pozivni = pozivni;
+        }
+
+        public String getPozivni() {
+            return pozivni;
+        }
     }
 
-    String broj;
 
     public FiksniBroj(Grad grad, String broj) {
         if (grad == Grad.Sarajevo) {
@@ -56,5 +67,10 @@ public class FiksniBroj {
     @Override
     public String ispisi() {
         return broj;
+    }
+
+    @Override
+    public int hashCode(){
+        return 0;
     }
 }
