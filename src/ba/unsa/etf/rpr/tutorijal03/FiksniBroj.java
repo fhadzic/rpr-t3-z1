@@ -1,25 +1,25 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-public class FiksniBroj {
+public class FiksniBroj extends TelefonskiBroj {
 
     private String broj;
+
     public enum Grad {
         Sarajevo("033"),
-        Travnik,
-        Zenica,
-        Mostar,
-        Tuzla,
-        Bihać,
-        Goražde,
-        Orašje,
-        Livno,
-        ŠirokiBrijeg,
-        BRCKO;
+        Travnik("030"),
+        Zenica("032"),
+        Mostar("036"),
+        Tuzla("035"),
+        Bihać("037"),
+        Goražde("038"),
+        Orašje("031"),
+        Livno("034"),
+        ŠirokiBrijeg("039"),
+        BRCKO("049");
 
         private final String pozivni;
 
         Grad(String pozivni) {
-
             this.pozivni = pozivni;
         }
 
@@ -30,34 +30,7 @@ public class FiksniBroj {
 
 
     public FiksniBroj(Grad grad, String broj) {
-        if (grad == Grad.Sarajevo) {
-            broj = "033/" + broj;
-        } else if (grad == Grad.Travnik) {
-            broj = "030/" + broj;
-        } else if (grad == Grad.Zenica) {
-            broj = "032/" + broj;
-        } else if (grad == Grad.Mostar) {
-            broj = "036/" + broj;
-        } else if (grad == Grad.Tuzla) {
-            broj = "035/" + broj;
-        } else if (grad == Grad.Bihać) {
-            broj = "037/" + broj;
-        } else if (grad == Grad.Goražde) {
-            broj = "038/" + broj;
-        } else if (grad == Grad.Orašje) {
-            broj = "031/" + broj;
-        } else if (grad == Grad.Livno) {
-            broj = "034/" + broj;
-        } else if (grad == Grad.ŠirokiBrijeg) {
-            broj = "039/" + broj;
-        } else if (grad == Grad.BRCKO) {
-            broj = "049/" + broj;
-        }
-        this.broj = broj;
-    }
-
-    public String getBroj() {
-        return broj;
+        this.broj = grad.getPozivni() + "/" + broj;
     }
 
     public void setBroj(String broj) {
@@ -70,7 +43,7 @@ public class FiksniBroj {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return 0;
     }
 }
