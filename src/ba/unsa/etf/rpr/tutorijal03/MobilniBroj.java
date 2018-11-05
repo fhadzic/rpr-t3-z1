@@ -1,14 +1,13 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-public class MobilniBroj extends TelefonskiBroj {
+public class MobilniBroj extends TelefonskiBroj implements Comparable{
 
     int mobilnaMreza;
     private String broj;
 
     public MobilniBroj(int mobilnaMreza, String broj) {
         this.mobilnaMreza = mobilnaMreza;
-        String temp;
-        this.broj = "0" + temp.toString(mobilnaMreza) + "/" + broj;
+        this.broj = String.format("0%d/%s", mobilnaMreza, broj);
     }
 
     public int getMobilnaMreza() {
@@ -30,6 +29,12 @@ public class MobilniBroj extends TelefonskiBroj {
     @Override
     public String ispisi() {
         return broj;
+    }
+
+    @Override
+    public int compareTo(Object o){
+        TelefonskiBroj o2 = (MobilniBroj) o;
+        return ispisi().compareTo( o2.ispisi() );
     }
 
     @Override

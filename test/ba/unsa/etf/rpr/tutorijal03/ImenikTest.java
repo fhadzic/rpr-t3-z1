@@ -60,4 +60,24 @@ class ImenikTest {
         }
         assertEquals("033/123-156,033/123-456,033/123-656,", result);
     }
+
+    @Test
+    public void dajBroj() {
+        Imenik imenik = new Imenik();
+        imenik.dodaj("Zajim Imamovic", new FiksniBroj(SARAJEVO, "652-456"));
+        imenik.dodaj("Safet Isovic", new FiksniBroj(BIHAC, "123-156"));
+        imenik.dodaj("Himzo Polovina", new FiksniBroj(TRAVNIK, "123-656"));
+        imenik.dodaj("Meho Puzic", new MobilniBroj(64, "543-322"));
+        assertEquals("030/123-656", imenik.dajBroj("Himzo Polovina"));
+    }
+
+    @Test
+    public void dajIme() {
+        Imenik imenik = new Imenik();
+        imenik.dodaj("Zajim Imamovic", new FiksniBroj(SARAJEVO, "652-456"));
+        imenik.dodaj("Safet Isovic", new FiksniBroj(BIHAC, "123-156"));
+        imenik.dodaj("Himzo Polovina", new FiksniBroj(TRAVNIK, "123-656"));
+        imenik.dodaj("Meho Puzic", new MobilniBroj(64, "543-322"));
+        assertEquals("Safet Isovic", imenik.dajIme(imenik.dajTelefonskiBroj("Safet Isovic")));
+    }
 }

@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.tutorijal03;
 
-public class MedunarodniBroj extends TelefonskiBroj{
+public class MedunarodniBroj extends TelefonskiBroj implements Comparable {
 
     private String drzava;
     private String broj;
@@ -30,6 +30,12 @@ public class MedunarodniBroj extends TelefonskiBroj{
     public String ispisi() {
 
         return (drzava + broj);
+    }
+
+    @Override
+    public int compareTo(Object o){
+        TelefonskiBroj o2 = (MedunarodniBroj) o;
+        return ispisi().compareTo( o2.ispisi() );
     }
 
     @Override
