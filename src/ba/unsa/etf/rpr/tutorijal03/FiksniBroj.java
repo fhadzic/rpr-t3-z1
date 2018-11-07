@@ -14,7 +14,7 @@ public class FiksniBroj extends TelefonskiBroj implements Comparable {
         GORAZDE("038"),
         ORASJE("031"),
         LIVNO("034"),
-        SIROKIBRIJEG("039"),
+        SIROKI_BRIJEG("039"),
         BRCKO("049");
 
         private final String pozivni;
